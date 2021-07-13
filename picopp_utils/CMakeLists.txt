@@ -3,6 +3,8 @@ add_library(picopp_utils
     distance_sensor.cc
     led.h
     meter.h
+    smooth_meter.h
+    servo.h
     ws2812.h
     ws2812.cc
 )

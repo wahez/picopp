@@ -23,9 +23,10 @@ struct Meter // this class works very nice with the maker pi pico because it has
 		range.max = std::max(range.min+1, range.max);
 		const uint num_leds = leds.size() * (value-range.min)/(range.max-range.min);
 		for (uint i = 0; i < leds.size(); i++)
-			leds[i]->set(i+1 <= num_leds);
+			leds[i]->set(i < num_leds);
 	}
 
+private:
 	std::vector<Out*> leds;
 };
 
