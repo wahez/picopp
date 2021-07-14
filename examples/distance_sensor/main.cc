@@ -1,4 +1,4 @@
-#include <picopp/picopp.h>
+#include <picopp/clock.h>
 #include <picopp_utils/distance_sensor.h>
 #include <picopp_utils/meter.h>
 
@@ -48,6 +48,7 @@ struct MakerPiPico // the MakerPiPico has a led on every pin by default
 
 int main()
 {
+	using namespace std::literals;
 	MakerPiPico pico;
 	const uint max_distance_mm = 500;
 	while (true)

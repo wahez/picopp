@@ -1,3 +1,4 @@
+#include <picopp/clock.h>
 #include <picopp_utils/led.h>
 #include <picopp_utils/smooth_meter.h>
 #include <picopp_utils/servo.h>
@@ -57,6 +58,7 @@ struct MakerPiPico
 
 int main()
 {
+	using namespace std::literals;
 	auto pico = MakerPiPico{};
 	const auto min = 0;
 	const auto max = 255;

@@ -1,5 +1,5 @@
 #pragma once
-#include <picopp/picopp.h>
+#include <picopp/pins.h>
 #include <picopp/pio.h>
 
 namespace PicoPP {

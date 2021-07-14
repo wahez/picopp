@@ -1,6 +1,7 @@
 #pragma once
-#include <picopp/picopp.h>
+#include <picopp/pins.h>
 #include <hardware/pwm.h>
+#include <cstdint>
 
 
 namespace PicoPP::PWM {

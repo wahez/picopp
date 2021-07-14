@@ -1,5 +1,6 @@
 add_library(picopp
-    picopp.h
+    clock.h
+    pins.h
     pio.h
     pio.cc
     pioasm.h

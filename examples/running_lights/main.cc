@@ -1,3 +1,4 @@
+#include <picopp/clock.h>
 #include <picopp_utils/led.h>
 #include <array>
 
@@ -36,6 +37,7 @@ struct MakerPiPico
 
 int main()
 {
+	using namespace std::literals;
 	auto pico = MakerPiPico{};
 	auto leds = std::array{
 		&pico.led15,

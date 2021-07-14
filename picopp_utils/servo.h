@@ -1,5 +1,4 @@
 #pragma once
-#include <picopp/picopp.h>
 #include <picopp/pwm.h>
 #include <hardware/clocks.h>
 #include <hardware/pwm.h>

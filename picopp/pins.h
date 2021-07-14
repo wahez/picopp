@@ -1,9 +1,5 @@
 #pragma once
 #include "pico/stdlib.h"
-#include <chrono>
-
-
-using namespace std::literals;
 
 
 namespace PicoPP {
@@ -42,9 +38,6 @@ namespace PicoPP {
 	private:
 		Pin pin;
 	};
-
-
-	inline void sleep_for(std::chrono::microseconds us) { sleep_us(us/1us); }
 
 
 }
