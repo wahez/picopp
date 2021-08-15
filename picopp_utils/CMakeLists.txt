@@ -1,8 +1,12 @@
 add_library(picopp_utils
+    buzzer.h
+    buzzer.cc
     distance_sensor.h
     distance_sensor.cc
     led.h
     meter.h
+    notes.h
+    notes.cc
     smooth_meter.h
     servo.h
     ws2812.h
