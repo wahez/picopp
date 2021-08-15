@@ -1,5 +1,6 @@
 #pragma once
 #include "led.h"
+#include "range.h"
 #include <vector>
 
 
@@ -8,19 +9,13 @@ namespace PicoPP::PWM {
 
 struct SmoothMeter
 {
-	struct Range
-	{
-		int min=0;
-		int max=255;
-	};
-
 	SmoothMeter(std::initializer_list<Led*> ls) :
 		leds{ls}
 	{}
 
 	void set(int value, Range range={0,255})
 	{
-		value = (value - range.min) * 255 * leds.size() / (range.max - range.min);
+		value = range.scale_to(value, {0, 255 * ssize(leds)});
 		for (auto* led: leds)
 		{
 			if (value > 255)

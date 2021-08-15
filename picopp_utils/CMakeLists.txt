@@ -7,6 +7,7 @@ add_library(picopp_utils
     meter.h
     notes.h
     notes.cc
+    range.h
     smooth_meter.h
     servo.h
     ws2812.h
