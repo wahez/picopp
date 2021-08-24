@@ -13,11 +13,11 @@ float note_to_freq(std::string_view sv)
 	constexpr auto notes = std::array{0, 2, 3, 5, 7, 8, 10};
 	assert(sv.size() < 4);
 	const auto octave = sv[sv.size()-1] - '0';
-	auto note = 12 * (octave - 3);
+	auto note = 0;
 	if (sv[0] > 'G')
-		note += notes[sv[0] - 'a'];
+		note = notes[sv[0] - 'a'];
 	else
-		note += notes[sv[0] - 'A'];
+		note = notes[sv[0] - 'A'];
 	switch (sv[1])
 	{
 	case '#':
@@ -27,7 +27,9 @@ float note_to_freq(std::string_view sv)
 		note--;
 		break;
 	}
-	return 440 * std::pow(1.0594630943592953f, note);
+	if (note < 3)
+		note += 12;
+	return 440 * std::pow(1.0594630943592953f, note + 12 * (octave - 3));
 }
 
 float operator"" _note(const char* s, std::size_t len)
