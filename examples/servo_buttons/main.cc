@@ -69,15 +69,15 @@ int main()
 		pico.meter.set(v, {min, max});
 		pico.servo0.set(v);
 		pico.servo1.set(v);
-		if (pico.button21.get())
+		if (pico.button21.button_pressed())
 			v = min;
-		else if (pico.button20.get())
+		else if (pico.button20.button_pressed())
 		{
 			v -= 1;
 			if (v < min)
 				v = min;
 		}
-		else if (pico.button22.get())
+		else if (pico.button22.button_pressed())
 		{
 			v += 1;
 			if (v > max)

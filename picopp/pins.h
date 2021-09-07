@@ -17,7 +17,8 @@ namespace PicoPP {
 			gpio_set_dir(pin, GPIO_IN);
 		}
 
-		bool get() const { return !gpio_get(pin); }
+		bool get() const { return gpio_get(pin); }
+		bool button_pressed() const { return !get(); }
 
 	private:
 		Pin pin;

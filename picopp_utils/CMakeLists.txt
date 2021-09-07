@@ -1,4 +1,6 @@
 add_library(picopp_utils
+    apa102.h
+    apa102.cc
     buzzer.h
     buzzer.cc
     distance_sensor.h
