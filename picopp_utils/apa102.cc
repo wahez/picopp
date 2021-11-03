@@ -24,7 +24,8 @@ namespace PicoPP::APA102
 
 	using namespace PIOPP;
 
-	LedStrip::LedStrip(PIO p, Pin din_pin, Pin clk_pin, float baud) :
+	LedStrip::LedStrip(PIO p, Pin din_pin, Pin clk_pin, float baud, int nleds) :
+		num_leds(nleds),
 		program{1,
 			out(Location::PINS, 1).side(0),
 			nop.side(1)

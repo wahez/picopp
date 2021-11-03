@@ -24,20 +24,21 @@ namespace PicoPP::APA102
 	struct LedStrip
 	{
 		LedStrip(const LedStrip&) = delete;
-		explicit LedStrip(PIO p, Pin din_pin, Pin clk_pin, float baud);
+		explicit LedStrip(PIO p, Pin din_pin, Pin clk_pin, float baud, int num_leds);
 
 		template<typename Container>
 		void set_leds_blocking(Container&& colors)
 		{
 			run.put_blocking(0x0);
 			for (const auto color: colors)
-			{
 				run.put_blocking(color.to_uint32());
-			}
+			for (int i = 0; i < num_leds - static_cast<int>(colors.size()); ++i)
+				run.put_blocking(Color{0, 0, 0}.to_uint32());
 			run.put_blocking(0xff'ff'ff'ff);
 		}
 
 	private:
+		const int num_leds;
 		PIOPP::Program program;
 		PIOPP::Run run;
 	};
